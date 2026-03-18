@@ -466,27 +466,3 @@ serve -s build
 
 ---
 
-## 14. 다음 주 과제
-
-### Report
-- GitHub 디렉토리에 build 파일을 호스팅(정적 사이트 배포)
-
-### 발표 주제: Git & Source Tree
-
-아래 명령어 및 개념 설명 준비:
-
-```
-commit (소스)
-commit (소스 변경)
-branch
-merge
-commit
-commit
-GitHub에서 협업하는 방법
-VS Code & GitHub 연동
-```
-
-### 실습
-1. 빌드 파일 생성 (`npm run build`)
-2. 빌드 파일을 GitHub에 업로드
-3. GitHub Pages로 디렉토리 호스팅
