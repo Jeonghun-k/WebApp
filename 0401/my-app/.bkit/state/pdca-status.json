@@ -1,0 +1,114 @@
+{
+  "version": "3.0",
+  "lastUpdated": "2026-04-01T05:59:02.072Z",
+  "activeFeatures": [
+    "report",
+    "report - Gap 분석"
+  ],
+  "primaryFeature": "report",
+  "features": {
+    "report": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-01T05:55:41.456Z",
+        "lastUpdated": "2026-04-01T05:56:52.194Z"
+      },
+      "lastFile": "/Users/kwakjeonghun/Desktop/school/26-1/웹프응용/0401/report/src/App.js"
+    },
+    "report - Gap 분석": {
+      "phase": "act",
+      "phaseNumber": 5,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-01T05:59:02.071Z",
+        "lastUpdated": "2026-04-01T05:59:02.072Z"
+      },
+      "previousPhase": "check",
+      "autoAdvanced": true
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-04-01T01:45:37.839Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-04-01T05:59:02.072Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-04-01T05:55:41.457Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:55:50.451Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:55:57.088Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:56:06.836Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:56:12.276Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:56:17.229Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:56:52.194Z",
+      "feature": "report",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-01T05:59:02.072Z",
+      "feature": "report - Gap 분석",
+      "phase": "act",
+      "action": "updated"
+    }
+  ],
+  "stateMachine": {
+    "defaultWorkflow": "default",
+    "activeWorkflows": {},
+    "totalTransitions": 0
+  },
+  "automation": {
+    "globalLevel": 2,
+    "trustScore": 40,
+    "pendingApprovals": 0,
+    "lastGateResult": null
+  },
+  "team": {
+    "enabled": true,
+    "stateFile": ".bkit/runtime/agent-state.json",
+    "eventsFile": ".bkit/runtime/agent-events.jsonl"
+  }
+}
