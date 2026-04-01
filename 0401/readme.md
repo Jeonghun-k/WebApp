@@ -1,54 +1,166 @@
+# React 정리 - Component & Props
+
 ---
 
-## Component
+# 1️⃣ Component
 
-1. component
-    1. ui를 구성하는 독립적인 코드 블럭
-    2. html,css,javascript,상태(state)및 속성(props)을 포함하여 재사용 가능 ui를 만든다
-    3. 입력(props)를 받아 출력(element)하는 역할
-    4. 리액트는 component 기반의 구조라는 특징을 가지고있다.
-    5. 웹페이지를 만드는 퍼즐 조각 ⇒ 실제 사용은 컴포넌트를 만들어서 화면 제작 ⇒ 컴포넌트는 사실 html태그이고, 돔의 각각의 노드들 이다.
-    6. 리엑트에서 입력 = props / 출력 = react Element
-    7. 일반 함수 = parameter / 출력 = return
-    8. parameter = props / ruturn  = react Element
-    9. 만드는 방법
-        1. class component
-            1. class를 사용해서 만들어진 component다
-        2. function component
-            1. 특징
-                1. pure 함수 같은 역할을 해야한다
-                2. component = function이라 생각한다
-    10. 특징
-        1. component이름은 항상 대문자로 시작 (파스칼 표기)
-        2. 리액트 태그 이름은 소문자로 시작
+## 1. Component 개념
+- **Component**는 UI를 구성하는 **독립적인 코드 블록**이다.
+- HTML, CSS, JavaScript, **state**, **props** 등을 포함하여 **재사용 가능한 UI**를 만든다.
+- **입력(props)을 받아 출력(React Element)을 생성하는 구조**를 가진다.
+- React는 **Component 기반 구조(Component-based architecture)** 를 사용한다.
+
+### 핵심 개념
+- 웹페이지는 **컴포넌트들을 조합하여 만든다.**
+- 컴포넌트는 **퍼즐 조각처럼 UI를 구성하는 단위**이다.
+- 실제 DOM에서는 **HTML 태그 → DOM Node**로 연결된다.
+
+```
+입력(props) → Component → 출력(React Element)
+```
+
+### 일반 함수와 비교
+
+| 구분 | 입력 | 출력 |
+|---|---|---|
+| 일반 함수 | parameter | return |
+| React Component | props | React Element |
+
+---
+
+## 2. Component 만드는 방법
+
+### 1️⃣ Class Component
+- **class 문법을 사용하여 만든 컴포넌트**
+
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello</h1>;
+  }
+}
+```
+
+---
+
+### 2️⃣ Function Component
+- **함수 형태로 만든 컴포넌트**
+- React에서는 **Component = Function** 으로 생각할 수 있다.
+- **Pure Function처럼 동작해야 한다.**
+
+```javascript
+function Welcome(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+```
+
+---
+
+## 3. Component 특징
+
+✔ **컴포넌트 이름은 반드시 대문자로 시작 (PascalCase)**  
+
+```
+MyComponent
+UserProfile
+ProductCard
+```
+
+✔ **HTML 태그는 소문자로 시작**
+
+```
+div
+span
+button
+```
+
+---
+
+# 2️⃣ Props
+
+## 1. Props 개념
+
+- **Props = Property (속성)**
+- **상위 컴포넌트가 하위 컴포넌트에 데이터를 전달할 때 사용**
+- **읽기 전용(Read-only)** → 직접 수정할 수 없다.
+- React 컴포넌트는 **Props를 통해 서로 데이터를 전달하며 통신**한다.
+- 즉, **부모 컴포넌트가 자식 컴포넌트에게 전달한 데이터**이다.
+
+---
+
+## 2. Props 사용 예시
+
+```javascript
+function Welcome(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+```
+
+사용
+
+```javascript
+<Welcome name="React" />
+```
+
+---
+
+## 3. Props 자료형 지정 (PropTypes)
+
+Props의 **자료형을 미리 지정할 수 있다.**
+
+```javascript
+Main.propTypes = {
+  name: PropTypes.string
+}
+```
+
+의미
+
+```
+name props는 문자열(String)이어야 한다
+```
+
+---
+
+## 4. Props 기본값 설정
+
+Props가 전달되지 않았을 때 사용할 **기본값(default)** 설정 가능
+
+```javascript
+Main.defaultProps = {
+  name: "디폴트"
+}
+```
+
+---
+
+## 5. Props 필수값 설정
+
+Props가 반드시 전달되어야 할 때 사용
+
+```javascript
+Main.propTypes = {
+  name: PropTypes.string.isRequired
+}
+```
+
+의미
+
+```
+name props는 반드시 전달되어야 한다.
+전달하지 않으면 오류 발생
+```
+
+---
+
+# 🔑 핵심 요약
+
+## Component
+- UI를 구성하는 **재사용 가능한 코드 블록**
+- **props 입력 → React Element 출력**
+- **Class Component / Function Component** 방식 존재
 
 ## Props
-
-1. Props  = 프로퍼티(속성)
-    1. 상위 컴포넌트가 하위 컴포넌트에 값을 전달 할 때 사용한다
-    2. 수정할 수 없다 = 읽기 전용
-    3. react컴포넌트는 props를 이용해서 서로 통신
-    4. 부모컴포넌트가 자식 컴포넌트에게 물려준 데이터를 의미한다.
-2. Props 자료형
-    1. 자료형을 미리 선언할 수있다.
-        
-        Main.propTypes = {
-        name: PropTypes.string // name의 자료형은 문자열임을 지정해주고있다.
-        }
-        
-    2. 기본값 설정 가능하다
-        
-        // 프로퍼티 기본값 지정
-        Main.defaultProps = {
-        name: '디폴트'
-        }
-        
-    3. 필수값을 설정해줘야 된다. → 안하면 오류남
-        
-        // 프로퍼티 타입 지정 및 필수값 설정
-        Main.propTypes = {
-        name: PropTypes.string.isRequired,
-        }
-        
-    4. pdf 24,25p해보기
-    5.
+- **부모 → 자식 데이터 전달 방식**
+- **읽기 전용**
+- **자료형 검사 및 기본값 설정 가능**
