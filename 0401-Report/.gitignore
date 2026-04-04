@@ -1,0 +1,6 @@
+node_modules/
+build/
+.bkit/
+.DS_Store
+.env
+docs/
