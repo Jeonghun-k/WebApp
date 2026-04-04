@@ -1,2 +1,4 @@
 node_modules/
 .bkit/
+.DS_Store
+WebApp
