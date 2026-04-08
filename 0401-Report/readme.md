@@ -1,6 +1,6 @@
 # BMI 계산기 (BMI Calculator)
 
-**배포 주소**: 
+## **배포 주소**: https://web-app-mu-lyart.vercel.app/
 
 키와 몸무게를 입력하면 BMI(체질량지수)를 즉시 계산하고, 건강 상태를 시각적으로 보여주는 React 웹 애플리케이션입니다.
 
