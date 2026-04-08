@@ -1,10 +1,10 @@
----
+
 
 # 실습 내용 : 
 ## 1. class Component의 counter.js를 제작 후 setState로 화면에 포현이 가능하도록 함
 ## 2. class Component로 counter.js를 수정하여 +버튼을 카운트 +1 버튼으로 변경되게 수정하고, index.js를 수정하여 출력을 변경함
 
-
+---
 # Component State
 
 ## 1. State
