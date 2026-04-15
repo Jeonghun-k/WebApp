@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# testhook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 작업 내용
+- 수업 시간 실습 프로젝트
+- `useState`의 네 가지 활용 예시 (Counter, TextField, Form, CheckBox)를 각각 컴포넌트로 만들어 `App.js`에서 한 번에 출력되도록 구성
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# React & Hook 정리
 
-### `npm start`
+## React를 사용하는 이유
+재사용 가능한 컴포넌트들을 사용하여 UI를 효율적으로 만들기 위해서 사용
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Component
+엘리먼트를 만드는 것. 주로 **함수형 컴포넌트**로 만든다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Hook
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 개념
+- 함수형 컴포넌트에서 **상태(state)** 와 **생명주기(lifecycle)** 같은 기능을 사용할 수 있게 해주는 특수한 함수
+  - 라이프사이클 : 컴포넌트가 만들어지고 소멸될 때까지의 과정
+- 클래스형 컴포넌트의 단점을 보완하여, 함수형 컴포넌트에서도 클래스형 컴포넌트의 기능을 사용할 수 있도록 한다
+  - ex) `useState`, `useEffect`
+- 기존 함수형 컴포넌트는 state 정의나 생명주기에 맞춘 실행이 불가능했기 때문에 Hook이 등장
 
-### `npm run build`
+### 장점
+- 상태를 쉽게 제어할 수 있다
+- 코드 재사용성과 관심사 분리
+- 사이드 이펙트 감소
+  - 사이드 이펙트 : 컴포넌트가 화면에 렌더링되는 것 외의 것들 (원치 않은 동작)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 규칙
+1. **최상위에서만 호출** - 반복문, 조건문, 중첩된 함수 내에서 호출하면 안 된다
+2. **React 함수 내에서만 호출** - 일반 JS 함수에서 호출하면 안 된다
+3. **이름은 `use`로 시작** - 모든 Hook의 이름은 `use`로 시작하기로 약속
+4. **return 뒤에 사용 금지** - return은 함수를 끝내는 것이므로, 그 뒤에 Hook을 사용하면 안 된다
+5. **이벤트 핸들러에서 사용 금지**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 종류
+- **빌트인 Hook**
+  - State Hooks : `useState`, `useReducer`
+  - Context : `useContext`
+- **Custom Hook** : 사용자가 필요에 의해 직접 정의해서 사용
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## useState
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 개념
+컴포넌트에 state variable(상태 변수)을 추가할 수 있다
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+const [변수명, setState] = useState(initialState)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 기본 예시
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+import { useState } from 'react';
 
-## Learn More
+function MyComponent() {
+  const [age, setAge] = useState(28);
+  const [name, setName] = useState('Taylor');
+  const [todos, setTodos] = useState(() => createTodos());
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+// 초깃값을 0으로 설정 (베스트 프랙티스)
+function Counter() {
+  const [count, setCount] = useState(0);
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// 윈도우 기본 사이즈를 초깃값으로 설정
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+}
+```
 
-### Code Splitting
+### 활용 예시
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| 예시 | 설명 |
+|------|------|
+| Counter | `count` 상태 변수는 숫자를 유지. 버튼 누르면 증가 |
+| Text Field | `text` 상태 변수는 문자열을 유지. 입력 시 `setText`로 상태 업데이트 |
+| Checkbox | `liked` 변수는 bool 값을 유지. 체크 여부에 따라 삼항연산자로 다른 출력 |
+| Form | 동일한 컴포넌트에서 둘 이상의 상태 변수 선언 가능. 각 상태 변수는 완전히 독립적 |
